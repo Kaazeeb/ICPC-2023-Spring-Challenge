@@ -1,0 +1,75 @@
+I cannot enphasize enough how much one can learn and evolve in events like this challenge.
+If you are anything like me, don't miss the opportunity to join these challenges whenever you get the chance.
+
+I started this problem knowing this much of C++:
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    return 0;
+}
+
+There ended the code and my knowledge in the language. But by the end, I could handle what I find to be complex data structures.
+Managing vectors, lists, sets, maps, pointers, heaps was no longer an impossible task. I find it impressive for 14 days of challenge.
+Of course I dedicated many hours to the event, probably more hours in two weeks than I dedicate to a class in one semester at my university.
+But that is only possible because a problem like this captures my attention and makes me interested in solving it. I am competitive and 
+I like solving problems.
+
+I am a begginner in programming so I am not sure if I am able to present many tips, I am sure that there are many more suited for the job.
+I will stick in presenting the path I took and what I believe that were good decisions and bad decisions.
+
+I started building a solution in the language I was more confortable with, Python3. Not the best language for the competition,
+but it helped to visualize a first approach to the problem and it was used as a reference for latter solutions. As I was just
+starting in C++ I needed the code in Python to start solving the problem.
+
+I submitted a couple of times and it became evident that the language was not able to handle the ammount of data it had to. I started
+using "input()" and "print()" but soon I learned that there was a faster way, "sys.stdin" and "sys.stdout", use it always, it was way faster.
+I got better results, but still exploded time in many of the test cases.
+
+No where to go but C++, maybe other languages could be better, I hear rust is very good, but I already knew 4 lines of code in C++ better that than 0.
+I used GPT, youtube videos, pdf's and any material I could find online to learn the basics of the C++ syntaxe. And converted my code. The difference
+in time was huge, now no test exploded the time limit, but my score was really bad, my implementation was super simple, I just avoided breaking th rules
+and when needed to chose a page to evict I evicted a random one.
+
+I started building my knowledge in cache eviction algorithms, many have dedicated a lot of time studying the subject, no need to reinvent the wheel,
+start your solution learning what already exist in the subject. For this problem, a basic LRU already hit almost 10k points. My first try I did not
+achieve that, my program was full of bugs. That was probably my biggest mistake during the competition, before building good basic solutions, I
+lost a lot of time chasing the complicated ones. Start your solution for the basis, you can build on top of that later if it is a long challenge 
+as this one was.
+
+If you don't have acess to the testing data you need to build yours. Sending submissions and only analizing the score is not near enough.
+For this example building your test cases was very hard and I couldn't do it, I should have put more effort in that, even though I created
+some test cases they did not simulate any specific type of tenant and it was a big part of the problem.
+
+Write debbug lines. Write debbug lines. It does not matter if you are sure your program will run, write the lines. When the program does not
+do what you think it will this will save you tremendous amount of time. I had read books before, I knew it is good practice to write error messages,
+but I did not do that, that cost me days debbuging my more complex solutions. Write the lines. Test for negative numbers, test for zeros, test the loops,
+write when entering the loop, when leaving it, which tenant called the function that produced the bug? write as many lines as you need, delete than afterwards.
+
+If winning is important to you, create the enviroment that allows you to focus 100% in the problem. If you have people in your house that can help taking away a few chores
+and helping you have more time to it ask for help, explain that it is important, maybe compensate latter. People will be working 12 hours a day or more, if you can beat them
+working 1-2 hours a day you definetelly do not need to read my solution. I know I worked almost 16 hours a day in this problem, even if I was not at the computer I was
+thinking about the algorithm.
+
+Now about the last days of the contest where I needed to adjust my final solution. By here, I had already learned that LRU performed well in many cases, LFU performed well in some
+and MRU performed well in others. I also had learned that chosing which tenant to evict was a good strategy and later i would choose which page of him to evict. I used current cost
+to chose the tenant, I was able to run an LRU qbase capacity virtual cache to calculate the cost. It was time for mixing the policies. Maybe LRU was good for one and LFU for other.
+This step put me close to the top and now I had chances of winning. I needed a good way of chosing the algorithm for each tenant but was not able to come up with good methods.
+I basically ran a virtual cache for LRU LFU and MRU and the one with least faults was chosen.
+
+I used some indicators to adjust which tenant to evict, maybe that was not very smart as I could be doing an overfit to the testing data, I had to chose between sending a solution
+to try top 10 and a solution that could be enough for top 30. I decided to risk it, it is a personal decision. Near the end i also learned that MFU for some reason performed better
+in 26 and 27, being honest I don't even know why. That and some fixes on small msitakes in my logic calculating the cost was good to put at position 9.
+
+Now I had two days to come up for solution to number 2 and 4 to try hitting first place, unfortunatelly I wasn't able to do it. I chose wronglly to chase a complicated approach to
+next cost of a tenant. I believed that calculating the current cost was not enough, because it could lead to removing more pages than the optmum because before that tenan started
+requesting pages again his cost would not update. I wanted a solution that could estimate his next cost.
+
+I decided to partitionize a LFU and LRU qbase virtual cache to measure where the hits were happening so I could do a linear regression and formulate a function to predict cost
+based on memory allocation, I thought I could come up with a optmum value for memory to each tenant and that would the best for the problem. I could finish this solution, bugs
+partitionizing the data structures took many hours. I ended in 21 before final tests and with luck I jumped to fourth place in the end.
+
+Thank you for taking the time to read this, and if you want to discuss the problem contact me on linkedIn or e-mail.
