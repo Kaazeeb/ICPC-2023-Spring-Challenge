@@ -72,4 +72,6 @@ I decided to partitionize a LFU and LRU qbase virtual cache to measure where the
 based on memory allocation, I thought I could come up with a optmum value for memory to each tenant and that would the best for the problem. I could finish this solution, bugs
 partitionizing the data structures took many hours. I ended in 21 before final tests and with luck I jumped to fourth place in the end.
 
-Thank you for taking the time to read this, and if you want to discuss the problem contact me on linkedIn or e-mail.
+Thank you for taking the time to read this, and if you want to discuss the problem contact me on linkedIn or e-mail:
+matheusaires095@gmail.com
+https://www.linkedin.com/in/matheu-saires/
